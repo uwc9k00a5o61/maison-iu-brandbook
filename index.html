@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MAISON IU — Brand Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+ --ivory:#F4F0E7;--ivory2:#EFEAE0;--ink:#16130E;--graphite:#1C1B18;--graphite2:#131210;
+ --ash:#8A8478;--champ:#C4B196;--garnet:#5A1A28;--cream:#F1E4D7;--border:rgba(255,255,255,.08);
+ --serif:'Bodoni Moda',Didot,serif;--script:'Pinyon Script',cursive;--display:'Fraunces',serif;
+ --body:'Cormorant Garamond',serif;--sans:'Inter',sans-serif;
+ --e:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--graphite2);color:#EDEBE6;font-family:var(--sans);font-weight:300;line-height:1.7}
+.wrap{max-width:1180px;margin:0 auto;padding:0 44px}
+section{padding:96px 0;border-bottom:1px solid var(--border)}
+.k{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--champ);margin-bottom:20px}
+h2{font-family:var(--display);font-weight:400;font-size:34px;letter-spacing:-.01em;margin-bottom:12px}
+h3{font-family:var(--display);font-weight:400;font-size:19px;margin-bottom:8px}
+p{color:#A19C92;max-width:70ch;font-size:16px;line-height:1.75;font-family:var(--body)}
+.lead{color:#EDEBE6;font-size:20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#191817;border:1px solid var(--border);border-radius:16px;padding:28px}
+.tile{background:var(--ivory);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--ink)}
+.lab{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#8A8579;margin-top:12px}
+.cap{font-size:13px;color:#7C776C;margin-top:6px;font-family:var(--sans)}
+.script{font-family:var(--script)}.wm{font-family:var(--serif)}
+.desc{font-family:var(--serif);letter-spacing:8px}
+.sw{border-radius:12px;height:120px;display:flex;align-items:flex-end;padding:13px;border:1px solid var(--border)} .sw span{font-size:11px}
+ul{color:#A19C92;font-family:var(--body);font-size:15px;padding-left:20px}li{margin:6px 0}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0C0B0A;border:1px solid var(--border);border-radius:12px;padding:20px;color:#CFC9BE;font-size:12.5px;line-height:1.6;overflow:auto}
+.badge{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid var(--border);color:#9A968E}
+.ok{color:#8FB79F}.no{color:#C98A7E}
+.btn{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--ivory);border:none;border-radius:999px;padding:11px 22px;cursor:pointer}
+
+/* ===== ANIMATIONS (reusable) ===== */
+@keyframes draw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes descIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.05);opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sweep{from{background-position:220% 0}to{background-position:-60% 0}}
+.anim .draw-on{animation:draw 2.4s var(--e) both}
+.anim .desc-in{animation:descIn 1.3s ease-out 1.05s both}
+.anim .rise-in{animation:rise 1.1s var(--e) both}
+.anim .rise-in.d2{animation-delay:.15s}
+.anim .keystone-draw path{stroke-dasharray:240;stroke-dashoffset:240;animation:dash 1.6s var(--e) .2s both}
+.foil{position:relative;overflow:hidden}
+.foil::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 42%,rgba(196,177,150,.6) 50%,transparent 58%);background-size:220% 100%;background-position:220% 0;opacity:0;pointer-events:none}
+.foil:hover::after{opacity:1;animation:sweep 1.15s var(--e)}
+.pulse{animation:pulse 2.6s ease-in-out infinite}
+.spin-arc{animation:spin 2.2s linear infinite}
+.foil.play::after{opacity:1;animation:sweep 1.15s var(--e)}
+
+/* ===== RESPONSIVE (mobile-first / iOS Safari) ===== */
+html,body{overflow-x:hidden;max-width:100%}
+img{max-width:100%;height:auto}
+.btn{min-height:44px}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+@media (max-width:820px){
+  .wrap{padding:0 22px}
+  section{padding:64px 0}
+  h2{font-size:25px}h3{font-size:17px}
+  .grid2,.grid3,.grid4{grid-template-columns:1fr;gap:16px}
+  pre{font-size:11px}
+  .cover{min-height:100svh;padding:calc(48px + env(safe-area-inset-top)) 22px calc(40px + env(safe-area-inset-bottom))}
+  .cover .script{font-size:clamp(44px,17vw,84px)}
+  .cover .wm{font-size:18px;letter-spacing:10px;padding-left:10px}
+  .cover .desc{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .draw-on{clip-path:none!important}
+  .desc-in,.rise-in{opacity:1!important;transform:none!important}
+  .foil::after{display:none}
+}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(120% 100% at 50% 0%,#232120,#131210 70%)}
+.cover .script{font-size:clamp(64px,12vw,140px);color:var(--ivory);line-height:.9}
+.cover .wm{font-size:clamp(18px,3vw,30px);letter-spacing:16px;padding-left:16px;color:var(--ivory);margin-top:18px}
+.cover .desc{font-size:14px;color:var(--champ);margin-top:16px}
+.replay{margin-top:44px}
+</style></head><body>
+
+<!-- ===== 1 COVER (animated) ===== -->
+<div class="cover anim" id="cover">
+  <div class="script draw-on">Maison IU</div>
+  <div class="wm rise-in d2">MAISON IU</div>
+  <div class="desc desc-in">FINE WATCHES · JEWELLERY · BAGS</div>
+  <button class="btn replay" onclick="replay()">▷ Проиграть анимацию заново</button>
+</div>
+
+<!-- ===== 2 STORY ===== -->
+<section id="story"><div class="wrap">
+  <div class="k">01 — Бренд-стори</div>
+  <h2>Дом кураторского люкса</h2>
+  <p class="lead">MAISON IU — частный дом, где редкие часы, ювелирные изделия и сумки подбираются лично. Имя объединяет maison и инициалы владельца — Ислама Утакаева (I.U.), 11–12 лет репутации на рынке.</p>
+  <div class="grid4" style="margin-top:40px">
+    <div class="card"><h3>Редкость</h3><p style="font-size:14px">Подобрано, а не «в наличии».</p></div>
+    <div class="card"><h3>Подлинность</h3><p style="font-size:14px">Провенанс в основе сделки.</p></div>
+    <div class="card"><h3>Дискретность</h3><p style="font-size:14px">Частный сервис, по записи.</p></div>
+    <div class="card"><h3>Bespoke</h3><p style="font-size:14px">Ювелирка под заказ (вторичный тэглайн).</p></div>
+  </div>
+  <p style="margin-top:26px">Ассортимент: часы (Rolex, AP, Patek, Richard Mille, Cartier, Omega, Tudor), ювелирка (Cartier, VCA, Bvlgari, Messika, Graff), сумки (Hermès) + изделия под заказ. География: Москва 70% · Дубай / Стамбул / СНГ 30%.</p>
+</div></section>
+
+<!-- ===== 3 LOGO SYSTEM ===== -->
+<section id="logo"><div class="wrap">
+  <div class="k">02 — Лого-система</div>
+  <h2>Основной логотип, компаньон, монограмма</h2>
+  <div class="grid2" style="margin-top:30px">
+    <div class="tile" style="padding:60px 28px;gap:14px">
+      <div class="script" style="font-size:80px;line-height:.8">Maison IU</div>
+      <div style="width:180px;height:1px;background:var(--ink);opacity:.2"></div>
+      <div class="wm" style="font-weight:500;font-size:22px;letter-spacing:11px;padding-left:11px">MAISON IU</div>
+      <div class="lab">Основной · Pinyon + серифный компаньон (B3)</div>
+    </div>
+    <div class="tile" style="padding:60px 28px;gap:14px;background:var(--graphite);color:var(--ivory)">
+      <div class="script" style="font-size:80px;line-height:.8">Maison IU</div>
+      <div style="width:180px;height:1px;background:var(--champ);opacity:.5"></div>
+      <div class="wm" style="font-weight:500;font-size:22px;letter-spacing:11px;padding-left:11px">MAISON IU</div>
+      <div class="lab" style="color:#8A8478">Инверсия · ivory на графите</div>
+    </div>
+  </div>
+  <div class="grid4" style="margin-top:22px">
+    <div class="tile" style="aspect-ratio:1/1"><div class="script" style="font-size:44px">Maison IU</div><div class="lab">Скрипт solo</div></div>
+    <div class="tile" style="aspect-ratio:1/1"><div class="wm" style="font-weight:500;font-size:26px;letter-spacing:8px">MAISON IU</div><div class="lab">Серифный вордмарк</div></div>
+    <div class="tile" style="aspect-ratio:1/1"><div class="wm" style="font-weight:600;font-size:72px">IU</div><div class="lab">Монограмма</div></div>
+    <div class="tile" style="aspect-ratio:1/1;background:var(--garnet);color:var(--cream)"><div class="wm" style="font-weight:600;font-size:72px">IU</div><div class="lab" style="color:#C49A90">Garnet colorway</div></div>
+  </div>
+</div></section>
+
+<!-- ===== 4 ANIMATIONS (key) ===== -->
+<section id="motion-lab" style="background:#100F0E"><div class="wrap">
+  <div class="k">03 — ⭐ Анимации логотипа (вживую)</div>
+  <h2>Motion бренда — медленный, весомый, ease-out</h2>
+  <p>Наведите курсор для микроинтеракций; кнопки перезапускают. Ниже — сниппеты CSS/SVG для переиспользования на сайте.</p>
+
+  <div class="grid3" style="margin-top:34px">
+    <!-- draw-on -->
+    <div class="card" id="a1"><div class="tile" style="padding:44px 16px;min-height:150px"><div class="script draw-on" style="font-size:48px">Maison IU</div></div>
+      <div class="lab">Draw-on скрипта</div><button class="btn" style="margin-top:12px;font-size:10px;padding:8px 16px" onclick="re('a1')">↻ replay</button></div>
+    <!-- monogram reveal -->
+    <div class="card" id="a2"><div class="tile" style="padding:30px 16px;min-height:150px;gap:8px">
+      <svg class="keystone-draw" width="34" height="38" viewBox="0 0 44 44" fill="none"><path d="M22 4 L38 22 L22 40 L6 22 Z" stroke="#16130E" stroke-width="1.6"/></svg>
+      <div class="wm rise-in" style="font-weight:600;font-size:56px">IU</div></div>
+      <div class="lab">Reveal монограммы + keystone</div><button class="btn" style="margin-top:12px;font-size:10px;padding:8px 16px" onclick="re('a2')">↻ replay</button></div>
+    <!-- descriptor tracking -->
+    <div class="card" id="a3"><div class="tile" style="padding:52px 16px;min-height:150px"><div class="desc desc-in" style="font-size:15px;color:var(--ink)">JEWELLERY · WATCHES · BAGS</div></div>
+      <div class="lab">Fade-in + раскрытие трекинга</div><button class="btn" style="margin-top:12px;font-size:10px;padding:8px 16px" onclick="re('a3')">↻ replay</button></div>
+    <!-- foil sweep hover -->
+    <div class="card"><div class="tile foil" style="padding:44px 16px;min-height:150px;background:var(--graphite);color:var(--ivory)"><div class="wm" style="font-weight:500;font-size:30px;letter-spacing:10px;padding-left:10px">MAISON IU</div></div>
+      <div class="lab">Hover · champagne-foil sweep</div><div class="cap">наведите курсор</div></div>
+    <!-- favicon pulse -->
+    <div class="card"><div class="tile" style="padding:30px 16px;min-height:150px;background:transparent"><div class="pulse" style="width:80px;height:80px;background:var(--ink);border-radius:20px;display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--ivory);font-weight:600;font-size:40px">IU</span></div></div>
+      <div class="lab">Пульс фавикона</div></div>
+    <!-- loader -->
+    <div class="card"><div class="tile" style="padding:30px 16px;min-height:150px;background:transparent;position:relative">
+      <svg class="spin-arc" width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="30" stroke="rgba(196,177,150,.25)" stroke-width="1.5"/><path d="M36 6 a30 30 0 0 1 30 30" stroke="#C4B196" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div style="position:absolute" class="wm" style="font-weight:600">IU</div></div>
+      <div class="lab">Лоадер · тонкая дуга</div></div>
+  </div>
+
+  <h3 style="margin-top:44px">Сниппеты для сайта</h3>
+  <div class="grid2" style="margin-top:14px">
+<pre>/* 1 · Каллиграфический draw-on скрипта */
+.script{clip-path:inset(0 0 0 0)}
+.script.play{animation:draw 2.4s cubic-bezier(.22,.61,.36,1) both}
+@keyframes draw{from{clip-path:inset(0 100% 0 0)}
+                to{clip-path:inset(0 0 0 0)}}
+/* prod: скрипт в single-line SVG + stroke-dashoffset
+   для настоящего «пера» */</pre>
+<pre>/* 2 · Champagne-foil sweep (hover, тактично) */
+.foil{position:relative;overflow:hidden}
+.foil::after{content:"";position:absolute;inset:0;
+ background:linear-gradient(110deg,transparent 42%,
+  rgba(196,177,150,.6) 50%,transparent 58%);
+ background-size:220% 100%;background-position:220% 0;opacity:0}
+.foil:hover::after{opacity:1;animation:sweep 1.15s ease-out}
+@keyframes sweep{to{background-position:-60% 0}}</pre>
+<pre>/* 3 · Descriptor — fade + раскрытие трекинга */
+.desc.play{animation:descIn 1.3s ease-out 1s both}
+@keyframes descIn{from{opacity:0;letter-spacing:0}
+                  to{opacity:1;letter-spacing:8px}}</pre>
+<pre>/* 4 · Keystone draw + monogram rise */
+.keystone path{stroke-dasharray:240;stroke-dashoffset:240;
+ animation:dash 1.6s ease-out .2s both}
+@keyframes dash{to{stroke-dashoffset:0}}
+.mono.play{animation:rise 1.1s cubic-bezier(.22,.61,.36,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(16px) scale(.96)}
+                to{opacity:1;transform:none}}</pre>
+  </div>
+  <p class="cap" style="margin-top:14px">Тайминги: 1.1–2.4s, ease-out, задержки каскадом. Уважать prefers-reduced-motion: отключать draw/sweep, оставлять fade.</p>
+</div></section>
+
+<!-- ===== 5 RULES ===== -->
+<section id="rules"><div class="wrap">
+  <div class="k">04 — Правила</div>
+  <h2>Clear-space · Min-size · Do &amp; Don'ts</h2>
+  <div class="grid2" style="margin-top:28px">
+    <div class="card"><h3>Охранное поле · Min-size</h3>
+      <ul style="margin-top:8px"><li>Поле = высота «M» вордмарка (1×).</li><li>Скрипт-логотип: min-ширина 140px / 34 мм.</li><li>Вордмарк: 96px · Монограмма: 16px (фавикон).</li></ul>
+      <div class="tile" style="margin-top:18px;padding:34px 20px"><div style="border:1px dashed rgba(22,19,14,.25);border-radius:8px;padding:22px 30px"><div class="script" style="font-size:46px">Maison IU</div></div></div>
+    </div>
+    <div class="card"><span class="badge ok">✓ DO</span>
+      <ul style="margin-top:12px"><li>Скрипт — hero/упаковка/сертификаты; вордмарк — UI/мелкое; монограмма — бот/фавикон.</li><li>Монохром по умолчанию; Garnet и шампань — только акцент/фольга.</li><li>Много воздуха, медленный motion.</li></ul>
+      <span class="badge no" style="margin-top:18px;display:inline-block">✕ DON'T</span>
+      <ul style="margin-top:12px"><li>Не ставить скрипт на мелком (там монограмма).</li><li>Не заливать логотип золотом/жёлтым, не в жирный круг.</li><li>Не растягивать, не менять трекинг, не добавлять тени.</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== 6 PALETTE ===== -->
+<section id="palette"><div class="wrap">
+  <div class="k">05 — Палитра</div>
+  <h2>Ivory + Ink · Garnet сигнатура · Champagne фольга</h2>
+  <div class="grid4" style="margin-top:24px">
+    <div><div class="sw" style="background:#F4F0E7"><span style="color:#16130E">#F4F0E7</span></div><div class="lab">Ivory — фон</div></div>
+    <div><div class="sw" style="background:#16130E"><span style="color:#F4F0E7">#16130E</span></div><div class="lab">Ink — логотип/текст</div></div>
+    <div><div class="sw" style="background:#5A1A28"><span style="color:#F1E4D7">#5A1A28</span></div><div class="lab">Garnet — сигнатура</div></div>
+    <div><div class="sw" style="background:#C4B196"><span style="color:#16130E">#C4B196</span></div><div class="lab">Champagne — фольга only</div></div>
+    <div><div class="sw" style="background:#EFEAE0"><span style="color:#16130E">#EFEAE0</span></div><div class="lab">Cream 2</div></div>
+    <div><div class="sw" style="background:#1C1B18"><span style="color:#F4F0E7">#1C1B18</span></div><div class="lab">Graphite — тёмная тема</div></div>
+    <div><div class="sw" style="background:#F1E4D7"><span style="color:#5A1A28">#F1E4D7</span></div><div class="lab">Cream on garnet</div></div>
+    <div><div class="sw" style="background:#8A8478"><span style="color:#16130E">#8A8478</span></div><div class="lab">Ash — вторичный</div></div>
+  </div>
+  <p class="cap" style="margin-top:16px">Лого монохром по умолчанию. Garnet — печати/упаковка/heritage. Champagne — только фольга/тиснение (Pantone на продакшене, не жёлтое золото).</p>
+</div></section>
+
+<!-- ===== 7 TYPOGRAPHY ===== -->
+<section id="type"><div class="wrap">
+  <div class="k">06 — Типографика</div>
+  <h2>Pinyon display · Bodoni вордмарк · Cormorant + Inter</h2>
+  <div class="grid3" style="margin-top:26px">
+    <div class="card"><div class="script" style="font-size:72px;color:#EDEBE6">Aa</div><div class="lab">Pinyon Script — display/подпись</div></div>
+    <div class="card"><div class="wm" style="font-size:72px;font-weight:500;color:#EDEBE6">Aa</div><div class="lab">Bodoni Moda — вордмарк/заголовки</div></div>
+    <div class="card"><div style="font-family:var(--body);font-size:72px;color:#EDEBE6">Aa</div><div class="lab">Cormorant — body / Inter — UI</div></div>
+  </div>
+  <p class="cap" style="margin-top:16px">Табличные (tabular) цифры для цен/референсов. ALL-CAPS лейблы — трекинг +.14em. Скрипт — только крупно.</p>
+</div></section>
+
+<!-- ===== 8 ICONOGRAPHY ===== -->
+<section id="icons"><div class="wrap">
+  <div class="k">07 — Иконографика</div>
+  <h2>Outline 1.5px · «ювелирная гравировка»</h2>
+  <div class="grid4" style="margin-top:24px">
+    <div class="tile" style="aspect-ratio:1.4/1;background:#191817"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#C4B196" stroke-width="1.5"><circle cx="24" cy="24" r="13"/><path d="M24 15v9l6 3"/></svg></div>
+    <div class="tile" style="aspect-ratio:1.4/1;background:#191817"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#C4B196" stroke-width="1.5"><path d="M24 10l8 6-8 22-8-22 8-6z"/><path d="M16 16h16"/></svg></div>
+    <div class="tile" style="aspect-ratio:1.4/1;background:#191817"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#C4B196" stroke-width="1.5"><rect x="10" y="18" width="28" height="18" rx="2"/><path d="M17 18v-3a7 7 0 0114 0v3"/></svg></div>
+    <div class="tile" style="aspect-ratio:1.4/1;background:#191817"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#C4B196" stroke-width="1.5"><path d="M24 33s-10-6-10-13a5.5 5.5 0 0110-3 5.5 5.5 0 0110 3c0 7-10 13-10 13z"/></svg></div>
+  </div>
+</div></section>
+
+<!-- ===== 9 PHOTO ===== -->
+<section id="photo"><div class="wrap">
+  <div class="k">08 — Фото-дирекшн</div>
+  <h2>Приватная смотровая · предмет на обсидиане</h2>
+  <div class="grid3" style="margin-top:26px">
+    <div><img src="https://v3b.fal.media/files/b/0aa4fb8a/CDVwFdhTlu8jqqk2-48Ng.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;border:1px solid var(--border)"><div class="lab">Часы · product-on-black</div></div>
+    <div><img src="https://v3b.fal.media/files/b/0aa4fb8d/I-HFfg7lzPpO_ZzYbJjLM.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;border:1px solid var(--border)"><div class="lab">Ювелирка · макро</div></div>
+    <div><img src="https://v3b.fal.media/files/b/0aa4fb8e/HJQEaLLVwRU-EJz4x9A-6.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;border:1px solid var(--border)"><div class="lab">Сумки · editorial</div></div>
+  </div>
+  <p class="cap" style="margin-top:14px">Тёмный фон, один предмет в направленном свете, много воздуха, тёплые блики. Без стоковой пестроты.</p>
+</div></section>
+
+<!-- ===== 10 MOTION PRINCIPLES ===== -->
+<section id="motion"><div class="wrap">
+  <div class="k">09 — Motion-принципы</div>
+  <h2>Медленно и весомо</h2>
+  <div class="grid3" style="margin-top:22px">
+    <div class="card"><h3>Ease</h3><p style="font-size:14px">ease-out, 1.1–2.4s. Никаких bounce/резких.</p></div>
+    <div class="card"><h3>Reveal</h3><p style="font-size:14px">Каскад: скрипт draws → вордмарк rise → дескриптор трекинг.</p></div>
+    <div class="card"><h3>Champagne</h3><p style="font-size:14px">Foil-sweep только на hover ключевого, тактично.</p></div>
+  </div>
+</div></section>
+
+<!-- ===== 11 TOV ===== -->
+<section id="tov"><div class="wrap">
+  <div class="k">10 — Tone of Voice</div>
+  <h2>Дискретный консьерж</h2>
+  <div class="grid2" style="margin-top:22px">
+    <div class="card"><span class="badge ok">✓ Говорим</span><ul style="margin-top:12px"><li>«Подобрано лично», «Провенанс подтверждён», «По записи».</li><li>curated · sourced · provenance · private client · bespoke.</li></ul></div>
+    <div class="card"><span class="badge no">✕ Не говорим</span><ul style="margin-top:12px"><li>«SALE!!!», «скидка», «дёшево».</li><li>Эмодзи-каскады, капслок-крик. Клиент, не «покупатель».</li></ul></div>
+  </div>
+</div></section>
+
+<!-- ===== 12 APPLICATIONS ===== -->
+<section id="apps" style="border-bottom:none"><div class="wrap">
+  <div class="k">11 — ⭐ Применения</div>
+  <h2>Носители</h2>
+
+  <!-- site header + mobile app -->
+  <div class="grid2" style="margin-top:28px">
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="background:var(--ivory);color:var(--ink);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid rgba(0,0,0,.08)">
+        <span class="wm" style="font-weight:500;font-size:18px;letter-spacing:6px">MAISON IU</span>
+        <span style="font-family:var(--sans);font-size:10px;letter-spacing:.2em;color:#6E685B">WATCHES · JEWELLERY · BAGS · CONTACT</span>
+      </div>
+      <div style="background:#0f0e0d;height:150px;display:flex;align-items:center;justify-content:center"><span class="script" style="color:var(--ivory);font-size:44px">Maison IU</span></div>
+      <div class="lab" style="padding:12px 24px">Шапка сайта + hero</div>
+    </div>
+    <div class="card" style="display:flex;gap:22px;align-items:center;justify-content:center">
+      <div style="width:150px;height:300px;border-radius:26px;background:var(--ivory);border:6px solid #0f0e0d;overflow:hidden;display:flex;flex-direction:column">
+        <div style="padding:16px 14px 8px;text-align:center"><span class="wm" style="color:var(--ink);font-weight:500;font-size:13px;letter-spacing:4px">MAISON IU</span></div>
+        <div style="flex:1;background:radial-gradient(circle at 50% 35%,#26232b,#0f0e11);display:flex;align-items:center;justify-content:center;color:#8A8478;font-size:10px">watch · product</div>
+        <div style="padding:10px;text-align:center;background:var(--ivory)"><span style="font-family:var(--serif);color:var(--ink);font-size:11px">₽ 1 450 000</span></div>
+      </div>
+      <div class="lab">Экран мобильного приложения</div>
+    </div>
+  </div>
+
+  <!-- avatars, favicons, app icon -->
+  <div class="grid4" style="margin-top:22px;align-items:end">
+    <div class="tile" style="background:transparent"><div style="width:96px;height:96px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--ivory);font-weight:600;font-size:44px">IU</span></div><div class="lab">Аватар Telegram-бота</div></div>
+    <div class="tile" style="background:transparent"><div style="width:96px;height:96px;border-radius:22px;background:var(--garnet);display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--cream);font-weight:600;font-size:44px">IU</span></div><div class="lab">Иконка Mini App</div></div>
+    <div class="tile" style="background:transparent;flex-direction:row;gap:10px;justify-content:center">
+      <div style="width:16px;height:16px;border-radius:4px;background:var(--ink);display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--ivory);font-size:9px;font-weight:600">IU</span></div>
+      <div style="width:32px;height:32px;border-radius:7px;background:var(--ink);display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--ivory);font-size:17px;font-weight:600">IU</span></div>
+      <div style="width:56px;height:56px;border-radius:12px;background:var(--ink);display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--ivory);font-size:30px;font-weight:600">IU</span></div>
+    </div>
+    <div class="tile" style="background:transparent"><div style="width:96px;height:96px;border-radius:20px;background:var(--ivory);display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.1)"><span class="wm" style="color:var(--ink);font-weight:600;font-size:44px">IU</span></div><div class="lab">App icon / фавикон 16–512</div></div>
+  </div>
+
+  <!-- business card, wax seal, certificate -->
+  <div class="grid3" style="margin-top:22px">
+    <div class="card" style="background:var(--ivory2);align-items:center;display:flex;flex-direction:column">
+      <div style="width:100%;max-width:280px;aspect-ratio:1.75/1;background:var(--ivory);border:1px solid rgba(0,0,0,.12);border-radius:8px;padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+        <div class="script" style="color:var(--ink);font-size:30px;line-height:.8">Maison IU</div>
+        <div><div style="font-family:var(--sans);font-size:9px;letter-spacing:.16em;color:#3A362F">ISLAM UTAKAEV · FOUNDER</div><div style="font-family:var(--sans);font-size:8px;letter-spacing:.14em;color:#9A927F">MOSCOU · DUBAI</div></div>
+      </div>
+      <div class="lab">Визитка · letterpress (шампань-фольга)</div>
+    </div>
+    <div class="card" style="background:var(--ivory2);align-items:center;display:flex;flex-direction:column;justify-content:center">
+      <div style="width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#6a2230,#4E1720);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 2px 6px rgba(0,0,0,.4)"><span class="wm" style="color:#E9C9A6;font-weight:600;font-size:40px">IU</span></div>
+      <div class="lab">Восковая печать / штамп (garnet)</div>
+    </div>
+    <div class="card" style="background:var(--ivory2);align-items:center;display:flex;flex-direction:column">
+      <div style="width:100%;max-width:210px;aspect-ratio:.72/1;background:var(--ivory);border:1px solid rgba(0,0,0,.12);border-radius:6px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+        <div class="wm" style="color:var(--ink);font-weight:600;font-size:24px">IU</div>
+        <div class="script" style="color:var(--ink);font-size:22px;line-height:.8">Certificate</div>
+        <div style="font-family:var(--sans);font-size:7px;letter-spacing:.16em;color:#6E685B">OF AUTHENTICITY</div>
+        <div style="width:40px;height:1px;background:var(--ink);opacity:.2;margin-top:auto"></div>
+        <div style="font-family:var(--serif);font-size:9px;color:#6E685B">Ref. · Provenance verified</div>
+      </div>
+      <div class="lab">Сертификат подлинности</div>
+    </div>
+  </div>
+
+  <!-- packaging: box, ribbon, shopper, hangtag, wrap, invoice, IG, email, signage -->
+  <div class="grid4" style="margin-top:22px">
+    <div class="card" style="background:var(--ivory2);text-align:center"><div style="height:96px;background:var(--ink);border-radius:8px;display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--ivory);font-weight:500;font-size:16px;letter-spacing:6px">MAISON IU</span></div><div class="lab">Коробка / упаковка</div></div>
+    <div class="card" style="background:var(--ivory2);text-align:center"><div style="height:96px;background:var(--garnet);border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative"><div style="position:absolute;left:50%;top:0;bottom:0;width:16px;background:rgba(0,0,0,.15);transform:translateX(-50%)"></div><span class="wm" style="color:var(--cream);font-size:14px;position:relative">IU</span></div><div class="lab">Подарочная лента</div></div>
+    <div class="card" style="background:var(--ivory2);text-align:center"><div style="height:96px;background:var(--ivory);border:1px solid rgba(0,0,0,.12);border-radius:8px;display:flex;align-items:center;justify-content:center"><span class="script" style="color:var(--ink);font-size:26px">Maison IU</span></div><div class="lab">Шоппер-пакет</div></div>
+    <div class="card" style="background:var(--ivory2);text-align:center;display:flex;flex-direction:column;align-items:center"><div style="width:56px;height:96px;background:#7a5a3a;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><span class="wm" style="color:#efe6d8;font-size:20px;font-weight:600">IU</span><span style="font-family:var(--serif);font-size:7px;letter-spacing:2px;color:#efe6d8">MAISON IU</span></div><div class="lab">Кожаная бирка (тиснение)</div></div>
+  </div>
+  <div class="grid4" style="margin-top:22px">
+    <div class="card" style="background:var(--ivory2);text-align:center"><div style="height:96px;border-radius:8px;background:repeating-linear-gradient(45deg,#F4F0E7,#F4F0E7 22px,#EAE3D5 22px,#EAE3D5 44px);display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--ink);font-size:14px;opacity:.55">IU · IU · IU</span></div><div class="lab">Обёрточная бумага (паттерн)</div></div>
+    <div class="card" style="background:var(--ivory2)"><div style="background:var(--ivory);border:1px solid rgba(0,0,0,.1);border-radius:6px;padding:12px;height:96px;overflow:hidden"><div class="wm" style="color:var(--ink);font-size:12px;letter-spacing:4px">MAISON IU</div><div style="font-family:var(--sans);font-size:7px;color:#6E685B;margin-top:4px">INVOICE · №0001</div><div style="border-top:1px solid rgba(0,0,0,.12);margin-top:8px;padding-top:6px;font-family:var(--serif);font-size:9px;color:#3A362F">Rolex Datejust 36 …… ₽ 1 450 000</div></div><div class="lab">Инвойс</div></div>
+    <div class="card" style="background:var(--ivory2);text-align:center"><div style="height:96px;background:#0f0e0d;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><span class="wm" style="color:var(--ivory);font-size:11px;letter-spacing:4px">MAISON IU</span><span style="font-family:var(--sans);font-size:7px;color:#8A8478;letter-spacing:.14em">ISLAM UTAKAEV</span></div><div class="lab">Email-подпись</div></div>
+    <div class="card" style="background:var(--ivory2);text-align:center"><div style="height:96px;background:#141312;border-radius:8px;display:flex;align-items:center;justify-content:center"><span class="script" style="color:var(--ivory);font-size:30px">Maison IU</span></div><div class="lab">Вывеска (бутик)</div></div>
+  </div>
+
+  <!-- IG set -->
+  <div class="card" style="margin-top:22px;background:var(--ivory2)">
+    <div class="lab" style="margin:0 0 14px">Instagram — аватар + шаблоны постов + сторис</div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+      <div style="width:70px;height:70px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--ivory);font-weight:600;font-size:30px">IU</span></div>
+      <div style="width:130px;height:130px;background:var(--ivory);border:1px solid rgba(0,0,0,.1);border-radius:6px;display:flex;align-items:center;justify-content:center"><span class="script" style="color:var(--ink);font-size:28px">Maison IU</span></div>
+      <div style="width:130px;height:130px;background:#0f0e0d;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><span class="wm" style="color:var(--ivory);font-size:11px;letter-spacing:4px">MAISON IU</span><span style="font-family:var(--serif);color:#C4B196;font-size:9px">New Arrivals</span></div>
+      <div style="width:130px;height:130px;background:var(--garnet);border-radius:6px;display:flex;align-items:center;justify-content:center"><span class="wm" style="color:var(--cream);font-weight:600;font-size:34px">IU</span></div>
+      <div style="width:74px;height:130px;background:#141312;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><span class="script" style="color:var(--ivory);font-size:20px">Maison IU</span><span style="font-family:var(--sans);font-size:6px;letter-spacing:.2em;color:#8A8478">STORY</span></div>
+    </div>
+  </div>
+
+  <p class="cap" style="margin-top:30px">MAISON IU — Brand Book (интерактивный). Скрипт на продакшене — аутлайны Pinyon (кернинг вылизан). Zero золота; champagne — только фольга. Опоры: high-end-visual-design, apple-design, improve-animations, animation-vocabulary, brandkit, web-design-guidelines.</p>
+</div></section>
+
+<script>
+function replay(){var c=document.getElementById('cover');c.classList.remove('anim');void c.offsetWidth;c.classList.add('anim');}
+function re(id){var el=document.getElementById(id);el.classList.remove('anim');void el.offsetWidth;el.classList.add('anim');}
+function sweepOnce(el){el.classList.add('play');setTimeout(function(){el.classList.remove('play');},1300);}
+window.addEventListener('load',function(){
+  ['a1','a2','a3'].forEach(function(id){var e=document.getElementById(id);if(e)e.classList.add('anim');});
+  // Scroll-trigger (mobile: no hover) + tap for champagne foil sweep; reveal motion-lab on view
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){sweepOnce(en.target);io.unobserve(en.target);}});},{threshold:.35});
+    document.querySelectorAll('.foil').forEach(function(f){
+      io.observe(f);
+      f.addEventListener('click',function(){sweepOnce(f);});
+      f.addEventListener('touchstart',function(){sweepOnce(f);},{passive:true});
+    });
+  }
+});
+</script>
+</body></html>
