@@ -49,6 +49,17 @@ pre{background:#0C0B0A;border:1px solid var(--border);border-radius:12px;padding
 .anim .rise-in{animation:rise 1.1s var(--e) both}
 .anim .rise-in.d2{animation-delay:.15s}
 .anim .keystone-draw path{stroke-dasharray:240;stroke-dashoffset:240;animation:dash 1.6s var(--e) .2s both}
+/* ===== PEN-WRITING · SVG stroke-draw по траектории письма ===== */
+.penwrite svg{display:block;width:100%;height:auto;overflow:visible}
+.tracer{stroke-dasharray:1000;stroke-dashoffset:1000;fill:none}
+.pentip{opacity:0}
+@keyframes writeMask{0%{stroke-dashoffset:1000}15%{stroke-dashoffset:780}19%{stroke-dashoffset:770}40%{stroke-dashoffset:560}44%{stroke-dashoffset:555}70%{stroke-dashoffset:250}74%{stroke-dashoffset:250}100%{stroke-dashoffset:0}}
+@keyframes writePen{0%{offset-distance:0%;opacity:0}6%{opacity:1}15%{offset-distance:22%}19%{offset-distance:23%}40%{offset-distance:44%}44%{offset-distance:44.5%}70%{offset-distance:75%}74%{offset-distance:75%}96%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.anim .tracer{animation:writeMask 3.1s cubic-bezier(.65,0,.35,1) both}
+.anim .pentip{animation:writePen 3.1s cubic-bezier(.65,0,.35,1) both}
+.cover .penwrite{width:min(760px,86vw)}
+.cover.anim .rise-in{animation-delay:3.15s}
+.cover.anim .desc-in{animation-delay:3.45s}
 .foil{position:relative;overflow:hidden}
 .foil::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 42%,rgba(196,177,150,.6) 50%,transparent 58%);background-size:220% 100%;background-position:220% 0;opacity:0;pointer-events:none}
 .foil:hover::after{opacity:1;animation:sweep 1.15s var(--e)}
@@ -77,6 +88,8 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
   .draw-on{clip-path:none!important}
   .desc-in,.rise-in{opacity:1!important;transform:none!important}
   .foil::after{display:none}
+  .tracer{stroke-dashoffset:0!important}
+  .pentip{display:none!important}
 }
 
 /* cover */
@@ -89,7 +102,16 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
 
 <!-- ===== 1 COVER (animated) ===== -->
 <div class="cover anim" id="cover">
-  <div class="script draw-on">Maison IU</div>
+  <div class="penwrite" id="penCover">
+    <svg viewBox="0 0 1000 360" role="img" aria-label="Maison IU">
+      <defs>
+        <path id="traceC" pathLength="1000" fill="none" d="M180 205 C240 120,305 120,345 205 S430 285,470 200 S560 130,600 208 S690 280,730 196 S815 140,865 205"/>
+        <mask id="maskC" maskUnits="userSpaceOnUse"><rect width="1000" height="360" fill="#000"/><use href="#traceC" class="tracer" stroke="#fff" stroke-width="300" stroke-linecap="round" stroke-linejoin="round"/></mask>
+      </defs>
+      <text x="500" y="212" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="168" fill="#F4F0E7" mask="url(#maskC)">Maison IU</text>
+      <g class="pentip" style="offset-path:path('M180 205 C240 120,305 120,345 205 S430 285,470 200 S560 130,600 208 S690 280,730 196 S815 140,865 205');offset-rotate:auto"><circle r="3.5" fill="#F4F0E7"/><rect x="-1" y="-15" width="2" height="15" fill="rgba(244,240,231,.65)"/></g>
+    </svg>
+  </div>
   <div class="wm rise-in d2">MAISON IU</div>
   <div class="desc desc-in">FINE WATCHES · JEWELLERY · BAGS</div>
   <button class="btn replay" onclick="replay()">▷ Проиграть анимацию заново</button>
@@ -143,8 +165,14 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
 
   <div class="grid3" style="margin-top:34px">
     <!-- draw-on -->
-    <div class="card" id="a1"><div class="tile" style="padding:44px 16px;min-height:150px"><div class="script draw-on" style="font-size:48px">Maison IU</div></div>
-      <div class="lab">Draw-on скрипта</div><button class="btn" style="margin-top:12px;font-size:10px;padding:8px 16px" onclick="re('a1')">↻ replay</button></div>
+    <div class="card" id="a1"><div class="tile" style="padding:26px 16px;min-height:150px"><div class="penwrite" style="width:82%">
+      <svg viewBox="0 0 1000 360" role="img" aria-label="Maison IU">
+        <defs><path id="traceL" pathLength="1000" fill="none" d="M180 205 C240 120,305 120,345 205 S430 285,470 200 S560 130,600 208 S690 280,730 196 S815 140,865 205"/>
+        <mask id="maskL" maskUnits="userSpaceOnUse"><rect width="1000" height="360" fill="#000"/><use href="#traceL" class="tracer" stroke="#fff" stroke-width="300" stroke-linecap="round"/></mask></defs>
+        <text x="500" y="212" text-anchor="middle" font-family="'Pinyon Script',cursive" font-size="150" fill="#16130E" mask="url(#maskL)">Maison IU</text>
+        <g class="pentip" style="offset-path:path('M180 205 C240 120,305 120,345 205 S430 285,470 200 S560 130,600 208 S690 280,730 196 S815 140,865 205');offset-rotate:auto"><circle r="4" fill="#16130E"/></g>
+      </svg></div></div>
+      <div class="lab">Draw-on скрипта · «письмо ручкой»</div><button class="btn" style="margin-top:12px;font-size:10px;padding:8px 16px" onclick="re('a1')">↻ replay</button></div>
     <!-- monogram reveal -->
     <div class="card" id="a2"><div class="tile" style="padding:30px 16px;min-height:150px;gap:8px">
       <svg class="keystone-draw" width="34" height="38" viewBox="0 0 44 44" fill="none"><path d="M22 4 L38 22 L22 40 L6 22 Z" stroke="#16130E" stroke-width="1.6"/></svg>
@@ -168,13 +196,29 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
 
   <h3 style="margin-top:44px">Сниппеты для сайта</h3>
   <div class="grid2" style="margin-top:14px">
-<pre>/* 1 · Каллиграфический draw-on скрипта */
-.script{clip-path:inset(0 0 0 0)}
-.script.play{animation:draw 2.4s cubic-bezier(.22,.61,.36,1) both}
-@keyframes draw{from{clip-path:inset(0 100% 0 0)}
-                to{clip-path:inset(0 0 0 0)}}
-/* prod: скрипт в single-line SVG + stroke-dashoffset
-   для настоящего «пера» */</pre>
+<pre>/* 1 · «Письмо ручкой» — SVG stroke-draw по траектории */
+&lt;svg viewBox="0 0 1000 360"&gt;
+ &lt;defs&gt;
+  &lt;path id="t" pathLength="1000" fill="none"
+        d="M180 205 C240 120,305 120,345 205 S…"/&gt;
+  &lt;mask id="m"&gt;&lt;rect width="1000" height="360" fill="#000"/&gt;
+   &lt;use href="#t" class="tracer" stroke="#fff"
+        stroke-width="300" stroke-linecap="round"/&gt;&lt;/mask&gt;
+ &lt;/defs&gt;
+ &lt;text mask="url(#m)" font-family="Pinyon Script"&gt;Maison IU&lt;/text&gt;
+ &lt;g class="pentip" style="offset-path:path('…');
+      offset-rotate:auto"&gt;&lt;circle r="3.5"/&gt;&lt;/g&gt;
+&lt;/svg&gt;
+.tracer{stroke-dasharray:1000;stroke-dashoffset:1000}
+.play .tracer{animation:writeMask 3.1s cubic-bezier(.65,0,.35,1) both}
+.play .pentip{animation:writePen 3.1s cubic-bezier(.65,0,.35,1) both}
+@keyframes writeMask{0%{stroke-dashoffset:1000}
+ 15%{stroke-dashoffset:780}19%{stroke-dashoffset:770} /* пауза */
+ 40%{stroke-dashoffset:560}70%{stroke-dashoffset:250}
+ 74%{stroke-dashoffset:250} /* пауза перед IU */ 100%{stroke-dashoffset:0}}
+@keyframes writePen{0%{offset-distance:0%}100%{offset-distance:100%}}
+/* pathLength=1000 → нормировка. В проде: обвести реальный
+   Pinyon в центрлайн-путь для точных глифов буква-за-буквой */</pre>
 <pre>/* 2 · Champagne-foil sweep (hover, тактично) */
 .foil{position:relative;overflow:hidden}
 .foil::after{content:"";position:absolute;inset:0;
